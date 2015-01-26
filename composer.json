@@ -1,0 +1,43 @@
+{
+    "name": "lleitelab/site",
+    "description": "Apenas estudo",
+    "version" : "0.0.1",
+    "type" : "github",
+    "require": {
+        "silex/silex": "~1.2",
+        "twig/twig": ">=1.8,<2.0-dev"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.4.*",
+        "phpunit/php-invoker": "*",
+        "symfony/browser-kit": ">=2.3,<2.4-dev",
+        "symfony/css-selector": ">=2.3,<2.4-dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "Site\\": "app/Site/src",
+            "Admin\\": "app/Admin/src"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "echo 'Installing npm and node...' && sudo apt-get install ruby && sudo gem install sass",
+            "echo 'Installing SASS...' && sudo apt-get install ruby && sudo gem install sass",
+            "echo 'Installing GRUNT...' && sudo npm install -g grunt-cli && sudo npm install -i",
+            "echo 'Installing BOWER...' && sudo npm install -g bower",
+            "echo 'Running BOWER...' && bower install",
+            "echo 'Running GRUNT...' && grunt"
+        ],
+        "post-update-cmd": [
+            "echo 'Running BOWER...' && bower install",
+            "echo 'Running GRUNT...' && grunt"
+        ]
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Leandro Leite",
+            "email": "leandro@lenadroleite.info"
+        }
+    ]
+}
